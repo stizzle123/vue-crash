@@ -26,9 +26,9 @@ app.use(express.json());
 app.use("/api/posts", posts);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(__dirname, "public")));
+  app.use(express.static(path.resolve(__dirname, "dist")));
   // Handle SPA
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + "/dist/index.html"));
 }
 
 app.listen(PORT, (err) => {
